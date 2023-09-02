@@ -88,3 +88,5 @@ def my_function():
 if __name__ == "__main__":
     cProfile.run('my_function()', filename='my_function_profile2.txt')
 
+# snakeviz 모듈을 사용해 결과 시각화.
+# 터미널 or 명령프롬프트에서 snakeviz my_function_profile.txt 이 명령 실행해보자.
