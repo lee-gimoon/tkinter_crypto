@@ -34,7 +34,7 @@ def start_upbit_client(q):
 # 코드와 변수를 연결하는 함수
 def update_variable(code, value):
     variable = code_to_variable.get(code)
-    if variable:
+    if variable: # variable이 즉, 변수가 0이 아니거나 빈 문자열이 아닌 경우 True로 처리되어 코드블록 실행.
         variable.set(format(value, ",d"))
 
 # 데이터 소비자
