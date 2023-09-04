@@ -55,7 +55,7 @@ def on_closing():
 # 루트 윈도우 생성
 root = tk.Tk()
 root.title("Upbit Websocket")
-root.geometry("800x500")
+root.geometry("1600x400")
 root.protocol("WM_DELETE_WINDOW", on_closing)
 
 # 코드와 변수의 매핑 딕셔너리
