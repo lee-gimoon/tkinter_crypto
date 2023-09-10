@@ -35,7 +35,7 @@ def start_upbit_client(q):
 def update_variable(code, value):
     variable = code_to_variable.get(code)
     if variable: # variable이 즉, 변수가 0이 아니거나 빈 문자열이 아닌 경우 True로 처리되어 코드블록 실행.
-        variable.set(format(value, ",d"))
+        variable.set(format(value, ",d")) # ",d"의 의미 => 1,234,567처럼 1000단위 마다 ,로 보기쉽게 해줌.
 
 # 데이터 소비자
 def consumer(q):

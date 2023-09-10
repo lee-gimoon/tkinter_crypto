@@ -104,3 +104,7 @@ consumer_thread.daemon = True
 consumer_thread.start()
 
 root.mainloop()
+
+# 메인 스레드에서는 tkinter gui 띄우기.
+# 서브 스레드1번에서는 upbit websocket에서 데이터 받아와서 q에 넣기.
+# 서브 스레드2번에서는 큐에 있는 데이터를 꺼내서 gui 화면에 보이게 하기.
