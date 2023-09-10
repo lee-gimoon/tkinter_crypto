@@ -18,7 +18,7 @@ async def binance_client(q_btc, q_neo, q_flm):
         while True:
             res_btc = await tscm_btc.recv() # 이부분에서 문제발생. await으로 인해 최신 data가 업데이트가 안됨. 왜냐하면 btc의 data는 빨리빨리 갱신되는데 noe와 flm data는 느리게 갱신되어 neo와 flm data를 받아야만 다음 코드가 실행되어서.
             res_neo = await tscm_neo.recv() # 따라서 tkinter gui에 실시간으로 data가 표시가 안됨.
-            res_flm = await tscm_flm.recv()
+            res_flm = await tscm_flm.recv() # 업비트는 한번에 여러개의 ticker를 가져오기 때문에 이 문제가 발생하지 않음. 하지만 바이낸스는 각각 가져와서 문제 발생 아마 병렬로 실행해야 이 문제를 해결할듯.
             q_btc.put(res_btc)
             q_neo.put(res_neo)
             q_flm.put(res_flm)
