@@ -10,7 +10,7 @@ async def binance_client():
     ts_eth = bm.trade_socket('ETHUSDT')
     
     # then start receiving messages for both symbols
-    async with ts_btc as tscm_btc, ts_eth as tscm_eth: # with a as b 와 with c as d를 한 문장으로 적은것. 
+    async with ts_btc as tscm_btc, ts_eth as tscm_eth: # with a as b 와 with c as d를 한 문장으로 적은것. 참고로 업비트 웹소켓 코드와 비교해보면 웹소켓 연결하는 코드임을 알 수 있음. (ts.btc가 websocket.connetc()라 할 수 있음)
         while True:
             res_btc = await tscm_btc.recv()
             res_eth = await tscm_eth.recv()
