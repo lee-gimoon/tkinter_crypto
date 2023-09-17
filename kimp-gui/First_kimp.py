@@ -29,8 +29,8 @@ async def binance_client(binance_queue):
 
 async def kimp_client(upbit_queue, binance_queue):
     while True:
-        upbit_data = await upbit_queue.get()
-        binance_data = await binance_queue.get()
+        upbit_data = await upbit_queue.get() # 김프에서는 await으로 인한 딜레이 문제를 해결 위해 tkinter_binance_Final.py 파일에서의 코드처럼 gather()를 사용하고 컨슈머를 코인마다 각각 만드는 방법을 쓰지 못한다.
+        binance_data = await binance_queue.get() # 왜냐하면 한 함수안에서 업비트, 바이낸스 웹소켓 데이터를 계산해서 gui에 출력해야하기 때문에. 따라서 Second_kimp 파일처럼 if not을 이용.
 
         upbit_data = round(upbit_data) # 티커가 비트코인이기 때문에 round로 정수만 출력.
         binance_data = round(binance_data) # 티커가 비트코인이기 때문에 round로 정수만 출력.

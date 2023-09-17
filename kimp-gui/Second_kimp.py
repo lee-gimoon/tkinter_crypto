@@ -1,4 +1,4 @@
-# First_kimp.py 파일의 코드를 업그레이드한 버전.
+# First_kimp.py 파일의 코드를 업그레이드한 버전. (마지막으로 알려진 데이터 사용)
 import websockets
 import asyncio
 import json
