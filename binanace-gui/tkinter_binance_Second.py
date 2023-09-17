@@ -1,4 +1,4 @@
-
+# 2개 이상의 코인 가격을 tkinter gui 화면에 출력해보자.
 from binance import AsyncClient, BinanceSocketManager
 import tkinter as tk
 from queue import Queue

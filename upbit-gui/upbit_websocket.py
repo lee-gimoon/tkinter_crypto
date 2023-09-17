@@ -13,7 +13,7 @@ async def upbit_client():
 
         # websockets.connect의 async def __aenter__(self) 메서드 시작됨.
 
-        subscribe = [{"ticket":"test"}, {"type":"trade", "codes":["KRW-BTC", "KRW-ETH"], "isOnlyRealtime": True}, {"format":"SIMPLE"}]
+        subscribe = [{"ticket":"test"}, {"type":"trade", "codes":["KRW-NEO"], "isOnlyRealtime": True}, {"format":"SIMPLE"}]
         
         subscribe = json.dumps(subscribe) # 인코딩 (Python 객체를 JSON 문자열로 변환)
         await websocket.send(subscribe) # # websocket.send() 는 코루틴임.
@@ -38,3 +38,9 @@ if __name__ == "__main__":
 
 
 # https://websockets.readthedocs.io/en/stable/reference/asyncio/client.html 참조.
+
+# NEO코인 같이 체결이 오랫동안 안될시 웹소켓 연결이 끊길 수 있다.
+# websockets.exceptions.ConnectionClosedError: no close frame received or sent 오류는 웹소켓 연결이 예기치 않게 닫혔을 때 발생합니다. 
+# 다음은 이 문제를 해결할 수 있는 몇 가지 방법입니다:
+# Reconnection Mechanism: 연결이 끊기면 자동으로 재연결하도록 코드를 수정할 수 있습니다.
+# Keep-Alive Messages: 서버나 클라이언트 측에서 정기적인 keep-alive 메시지를 보내 연결을 유지하도록 할 수 있습니다.

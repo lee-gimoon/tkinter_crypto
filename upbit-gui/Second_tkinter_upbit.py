@@ -1,3 +1,4 @@
+# 2개 이상의 코인의 가격을 tkinter gui 화면에 출력해보자.
 import json
 import tkinter as tk
 import websockets

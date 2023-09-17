@@ -1,4 +1,5 @@
-# binance-websocket.py 에서 업그레이드 버전이다. (2개 이상의 티커 data를 출력할때 딜레이가 걸리는 것을 해결한 코드.)
+# Second_binance_websocket.py 에서 업그레이드 버전이다. (2개 이상의 코인들의 데이터를 출력할떄 발생하는 문제를 해결해보자)
+# 코인들의 데이터를 recv() 해서 print()하는 부분을 각 코인마다 분리하여 딜레이 문제를 해결한 코드.
 import asyncio
 from binance import AsyncClient, BinanceSocketManager
 

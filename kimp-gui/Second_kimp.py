@@ -1,3 +1,4 @@
+# First_kimp.py 파일의 코드를 업그레이드한 버전.
 import websockets
 import asyncio
 import json
@@ -40,7 +41,7 @@ async def kimp_client(upbit_queue, binance_queue):
         updated = False  # 플래그를 이용해 어떤 큐가 업데이트되었는지 확인
 
         if not upbit_queue.empty():
-            last_upbit_data = await upbit_queue.get()
+            last_upbit_data = await upbit_queue.get() # asyncio.Queue() 이기 때문에 await을 붙여야함.
             updated = True
 
         if not binance_queue.empty():
@@ -69,3 +70,7 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main())
+
+# asyncio.create_task()를 사용하면 여러 코루틴을 쉽고 효율적으로 병렬로 실행할 수 있습니다. 
+# 이를 통해 upbit_client는 Upbit 데이터를, binance_client는 Binance 데이터를, 그리고 kimp_client는 두 데이터를 비교하여 "김치 프리미엄"을 계산합니다. 
+# 이 모든 작업이 동시에 이루어져야 하기 때문에 create_task를 사용하여 각 코루틴을 병렬 작업으로 만드는 것이 유용합니다. 실제로는 진짜 병렬 작업이 아닌 동시성 작업이다.
