@@ -4,6 +4,5 @@
 
 - First_kimp.py => 업비트와 바이낸스 코인 1가지의 김프를 게산한 파일.
 - Second_kimp.py => 업비트와 바이낸스에서 가져오는 코인 체결 간격, 즉, 갱신되는 시간이 달라 발생하는 문제를 해결. (explation 폴더에서 kimp-problem 파일 참조.)
-
-
+- Third_kimp.py => 코인 2개 이상의 김프를 계산한 코드.
 
